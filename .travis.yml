@@ -1,0 +1,7 @@
+language: c
+dist: xenial
+script:
+  - make all
+  - make test
+  - ./bcrypt_test
+  - make clean
