@@ -3,5 +3,6 @@ dist: xenial
 script:
   - make all
   - make test
-  - ./bcrypt_test
+  - ./bcrypt_test1
+  - ./bcrypt_test2
   - make clean
