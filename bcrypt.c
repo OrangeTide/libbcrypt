@@ -820,7 +820,7 @@ static int BF_decode(BF_word *dst, const char *src, int size)
 	return 0;
 }
 
-static void BF_encode(char *dst, const BF_word *src, int size)
+static void BF_encode(char *dst, const void *src, int size)
 {
 	const unsigned char *sptr = (const unsigned char *)src;
 	const unsigned char *end = sptr + size;
@@ -1314,7 +1314,7 @@ char *_crypt_gensalt_blowfish_rn(const char *prefix, unsigned long count,
 	output[5] = '0' + count % 10;
 	output[6] = '$';
 
-	BF_encode(&output[7], (const BF_word *)input, 16);
+	BF_encode(&output[7], input, 16);
 	output[7 + 22] = '\0';
 
 	return output;
